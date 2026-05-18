@@ -687,20 +687,41 @@ st.markdown(
     """
     <div style="
         text-align:center;
-        font-size:18px;
-        font-weight:600;
-        background: linear-gradient(
-            90deg,
-            #ff4d4d,
-            #ff00cc,
-            #7d5fff
-        );
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        margin-top:60px;
-        padding-bottom:30px;
+        margin-top:80px;
+        padding-bottom:40px;
+        font-size:22px;
+        font-weight:700;
+        color:white;
     ">
-        Built with 😊 by Aditya Singh 🚀
+        <span style="
+            background: linear-gradient(
+                90deg,
+                #ff4d4d,
+                #ff00cc,
+                #7d5fff
+            );
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        ">
+            Built with
+        </span>
+
+        😊
+
+        <span style="
+            background: linear-gradient(
+                90deg,
+                #ff4d4d,
+                #ff00cc,
+                #7d5fff
+            );
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        ">
+            by Aditya Singh
+        </span>
+
+        🚀
     </div>
     """,
     unsafe_allow_html=True
