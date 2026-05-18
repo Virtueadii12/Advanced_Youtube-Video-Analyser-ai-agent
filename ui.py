@@ -684,7 +684,25 @@ if st.session_state.analysis_done:
 # =========================================================
 
 st.markdown("""
-<div class="footer">
-Built with ❤️ using Groq + Whisper + Streamlit + RAG
+
+<div class="footer" style="
+
+font-size:18px;
+
+font-weight:600;
+
+background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+margin-top:60px;
+
+">
+
+Built with 😊 by Aditya Singh 🚀
+
 </div>
+
 """, unsafe_allow_html=True)
