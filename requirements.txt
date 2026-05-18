@@ -19,3 +19,4 @@ torch
 torchaudio
 torchvision
 youtube-transcript-api
+protobuf==3.20.3
