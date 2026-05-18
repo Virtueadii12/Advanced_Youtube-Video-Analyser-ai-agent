@@ -683,41 +683,36 @@ if st.session_state.analysis_done:
 # FOOTER
 # =========================================================
 
-st.markdown(
-    """
-    <div style='
-        text-align:center;
-        margin-top:80px;
-        padding-bottom:40px;
-        font-size:22px;
-        font-weight:700;
-    '>
+footer_html = """
+<div style='
+text-align:center;
+margin-top:80px;
+padding-bottom:40px;
+font-size:22px;
+font-weight:700;
+'>
 
-        <span style='
-            background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        '>
-            Built with
-        </span>
+<span style='
+background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+'>
+Built with
+</span>
 
-        <span style='font-size:24px;'>
-            😊
-        </span>
+<span style='font-size:24px;'> 😊 </span>
 
-        <span style='
-            background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        '>
-            by Aditya Singh
-        </span>
+<span style='
+background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+'>
+by Aditya Singh
+</span>
 
-        <span style='font-size:24px;'>
-            🚀
-        </span>
+<span style='font-size:24px;'> 🚀 </span>
 
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+</div>
+"""
+
+st.markdown(footer_html, unsafe_allow_html=True)
