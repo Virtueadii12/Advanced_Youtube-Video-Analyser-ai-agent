@@ -1,7 +1,7 @@
 streamlit
 python-dotenv
 openai-whisper
-yt-dlp
+yt-dlp>=2025.1.15
 ffmpeg-python
 agno
 groq

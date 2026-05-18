@@ -1,19 +1,22 @@
 from yt_dlp import YoutubeDL
 import whisper
 import os
+import uuid
 
 model = whisper.load_model("tiny")
 
 
 def transcribe_youtube_video(video_url):
 
-    output_file = "audio.mp3"
+    filename = f"{uuid.uuid4()}.mp3"
 
     ydl_opts = {
-        "format": "bestaudio/best",
-        "outtmpl": output_file,
+        "format": "bestaudio[ext=m4a]/bestaudio/best",
+        "outtmpl": filename,
         "quiet": True,
         "noplaylist": True,
+        "extractaudio": True,
+        "audioformat": "mp3",
 
         "http_headers": {
             "User-Agent": (
@@ -21,15 +24,21 @@ def transcribe_youtube_video(video_url):
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/122.0.0.0 Safari/537.36"
             )
+        },
+
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android"]
+            }
         }
     }
 
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
 
-    result = model.transcribe(output_file)
+    result = model.transcribe(filename)
 
-    if os.path.exists(output_file):
-        os.remove(output_file)
+    if os.path.exists(filename):
+        os.remove(filename)
 
     return result["text"]
