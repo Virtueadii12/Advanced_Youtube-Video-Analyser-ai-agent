@@ -16,3 +16,4 @@ pandas
 torch
 torchaudio
 torchvision
+youtube-transcript-api
