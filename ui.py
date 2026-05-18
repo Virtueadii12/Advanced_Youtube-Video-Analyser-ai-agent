@@ -683,26 +683,25 @@ if st.session_state.analysis_done:
 # FOOTER
 # =========================================================
 
-st.markdown("""
-
-<div class="footer" style="
-
-font-size:18px;
-
-font-weight:600;
-
-background: linear-gradient(90deg,#ff4d4d,#ff00cc,#7d5fff);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-margin-top:60px;
-
-">
-
-Built with 😊 by Aditya Singh 🚀
-
-</div>
-
-""", unsafe_allow_html=True)
+st.markdown(
+    """
+    <div style="
+        text-align:center;
+        font-size:18px;
+        font-weight:600;
+        background: linear-gradient(
+            90deg,
+            #ff4d4d,
+            #ff00cc,
+            #7d5fff
+        );
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-top:60px;
+        padding-bottom:30px;
+    ">
+        Built with 😊 by Aditya Singh 🚀
+    </div>
+    """,
+    unsafe_allow_html=True
+)
