@@ -1,31 +1,35 @@
+from yt_dlp import YoutubeDL
 import whisper
-import yt_dlp
-import tempfile
+import os
 
-# LOAD MODEL
 model = whisper.load_model("tiny")
 
-# ======================================================
-# TRANSCRIBE YOUTUBE VIDEO
-# ======================================================
 
 def transcribe_youtube_video(video_url):
 
-    temp_dir = tempfile.mkdtemp()
-
-    audio_path = f"{temp_dir}/audio.mp3"
+    output_file = "audio.mp3"
 
     ydl_opts = {
         "format": "bestaudio/best",
-        "outtmpl": audio_path,
+        "outtmpl": output_file,
         "quiet": True,
+        "noplaylist": True,
+
+        "http_headers": {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/122.0.0.0 Safari/537.36"
+            )
+        }
     }
 
-    # DOWNLOAD AUDIO
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    with YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
 
-    # TRANSCRIBE
-    result = model.transcribe(audio_path)
+    result = model.transcribe(output_file)
+
+    if os.path.exists(output_file):
+        os.remove(output_file)
 
     return result["text"]
